@@ -1,0 +1,12 @@
+{
+  "name": "uidepet-huellitas-solidarias",
+  "private": true,
+  "description": "Monorepo local: frontend React + API REST para UidePet Huellitas Solidarias",
+  "scripts": {
+    "install:all": "npm install --prefix uidepet-huellitasSolidarias-Api && npm install --prefix uidepet-huellitas-solidarias",
+    "dev:api": "npm run dev --prefix uidepet-huellitasSolidarias-Api",
+    "dev:web": "npm run dev --prefix uidepet-huellitas-solidarias",
+    "build:api": "npm run build --prefix uidepet-huellitasSolidarias-Api",
+    "build:web": "npm run build --prefix uidepet-huellitas-solidarias"
+  }
+}
