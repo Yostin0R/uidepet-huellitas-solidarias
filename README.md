@@ -6,6 +6,7 @@ Monorepo del proyecto para la gestión de adopciones responsables de mascotas. I
 
 | Carpeta | Descripción | Stack |
 |---------|-------------|-------|
+| `database/` | Esquema MySQL, seeds y Docker | MySQL 8 |
 | `uidepet-huellitas-solidarias/` | Frontend web | React, Vite, Material UI |
 | `uidepet-huellitasSolidarias-Api/` | API REST | Node.js, Express, TypeScript |
 
@@ -13,6 +14,7 @@ Monorepo del proyecto para la gestión de adopciones responsables de mascotas. I
 
 - Node.js 18+
 - npm
+- MySQL 8+ **o** Docker (para la base de datos)
 
 ## Instalación
 
@@ -21,6 +23,30 @@ Desde la raíz del proyecto:
 ```bash
 npm run install:all
 ```
+
+## Base de datos
+
+Scripts en `database/`:
+
+```bash
+cd database
+docker compose up -d
+```
+
+O con MySQL local:
+
+```bash
+mysql -u root -p < database/schema.sql
+mysql -u root -p < database/seed.sql
+mysql -u root -p < database/seed-demo.sql
+```
+
+Credenciales demo (contraseña `123456`):
+
+- `usuario@huellitas.com` — adoptante
+- `fundacion@huellitas.com` — fundación
+
+Detalle completo en [database/README.md](database/README.md).
 
 ## Variables de entorno (API)
 

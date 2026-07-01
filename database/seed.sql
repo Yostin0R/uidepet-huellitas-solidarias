@@ -1,5 +1,5 @@
 -- UidePet - Huellitas Solidarias
--- Datos iniciales de catálogo (roles del sistema)
+-- Catálogo inicial de roles (idempotente)
 
 USE uidepet_huellitas;
 
@@ -9,4 +9,6 @@ INSERT INTO rol (nombre_rol, descripcion) VALUES
   ('ADMIN_UIDE', 'Administrador institucional de la plataforma UIDE'),
   ('VETERINARIO', 'Profesional o clínica con acceso a atención veterinaria y carnets'),
   ('VOLUNTARIO', 'Persona aprobada para apoyar actividades de una organización'),
-  ('MODERADOR', 'Usuario con permisos de revisión de denuncias y validación de fundaciones');
+  ('MODERADOR', 'Usuario con permisos de revisión de denuncias y validación de fundaciones')
+ON DUPLICATE KEY UPDATE
+  descripcion = VALUES(descripcion);

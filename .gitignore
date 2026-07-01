@@ -13,6 +13,9 @@ logs/
 *.log
 npm-debug.log*
 
+# Artefactos temporales de MySQL Workbench
+.tmp-mwb/
+
 # Editor / SO
 .vscode/*
 !.vscode/extensions.json

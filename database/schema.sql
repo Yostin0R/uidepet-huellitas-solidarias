@@ -101,7 +101,12 @@ CREATE TABLE IF NOT EXISTS cuenta_usuario (
 
   CONSTRAINT fk_cuenta_organizacion
     FOREIGN KEY (fk_organizacion_id) REFERENCES organizacion (id_organizacion)
-    ON UPDATE CASCADE ON DELETE RESTRICT
+    ON UPDATE CASCADE ON DELETE RESTRICT,
+
+  CONSTRAINT chk_cuenta_titular_xor CHECK (
+    (fk_persona_id IS NOT NULL AND fk_organizacion_id IS NULL)
+    OR (fk_persona_id IS NULL AND fk_organizacion_id IS NOT NULL)
+  )
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS cuenta_rol (
@@ -487,7 +492,7 @@ CREATE TABLE IF NOT EXISTS donacion (
     ON UPDATE CASCADE ON DELETE RESTRICT
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-CREATE TABLE solicitud_voluntariado (
+CREATE TABLE IF NOT EXISTS solicitud_voluntariado (
   id_voluntariado INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   fk_persona_id INT UNSIGNED NOT NULL,
   fk_organizacion_id INT UNSIGNED NOT NULL,
