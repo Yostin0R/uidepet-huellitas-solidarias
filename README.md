@@ -62,13 +62,4 @@ Este es el **repositorio principal** del proyecto. Los repos anteriores del fron
 - Frontend (histórico): https://github.com/Anyela0515/uidepet-huellitas-solidarias
 - API (histórico): https://github.com/Anyela0515/uidepet-huellitasSolidarias-Api
 
-### Publicar en GitHub
 
-1. Crear un repositorio vacío en GitHub (por ejemplo `uidepet-huellitas-solidarias`).
-2. Vincular y subir:
-
-```bash
-git remote add origin https://github.com/Anyela0515/TU-REPO.git
-git branch -M main
-git push -u origin main
-```
